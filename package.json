@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/pedrorochacr/cefet-web-geiser#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pug": "^3.0.4"
   }
 }
