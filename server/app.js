@@ -16,8 +16,8 @@ const db = {}
 
 
 // configurar qual templating engine usar. Sugestão: hbs (handlebars)
-//app.set('view engine', '???qual-templating-engine???');
-//app.set('views', '???caminho-ate-pasta???');
+app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, 'views'))
 // dica: 2 linhas
 
 
