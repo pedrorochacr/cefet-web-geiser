@@ -18,9 +18,9 @@ app.set('views', path.join(__dirname, 'views'))
 // EXERCÍCIO 2
 // definir rota para página inicial --> renderizar a view index, usando os
 // dados do banco de dados "data/jogadores.json" com a lista de jogadores
-// dica: o handler desta função é bem simples - basta passar para o template
-//       os dados do arquivo data/jogadores.json (~3 linhas)
-
+app.get('/', (req, res) => {
+  res.render('index', { jogadores: db.jogadores.players })
+})
 
 
 // EXERCÍCIO 3
