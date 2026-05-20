@@ -2,17 +2,11 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const fs = require('fs')
 
 // variáveis globais deste módulo
 const PORT = 3000
 const db = {}
-
-
-// carregar "banco de dados" (data/jogadores.json e data/jogosPorJogador.json)
-// você pode colocar o conteúdo dos arquivos json no objeto "db" logo abaixo
-// dica: 1-4 linhas de código (você deve usar o módulo de filesystem (fs))
-
-
 
 
 // configurar qual templating engine usar. Sugestão: hbs (handlebars)
@@ -39,6 +33,10 @@ app.set('views', path.join(__dirname, 'views'))
 // EXERCÍCIO 1
 // configurar para servir os arquivos estáticos da pasta "client"
 app.use(express.static(path.join(__dirname, '..', 'client')))
+
+// carregar "banco de dados" (data/jogadores.json e data/jogosPorJogador.json)
+db.jogadores = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'jogadores.json')))
+db.jogosPorJogador = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'jogosPorJogador.json')))
 
 // abrir servidor na porta 3000 (constante PORT)
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`))
